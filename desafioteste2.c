@@ -47,7 +47,7 @@ char entrada(char *dig, char x, int j){
 	
 	do{
 		c = getch();
-		if (isalnum(c) != 0 ||c == 32 || c == 40 || c == 41 || c == 126 || c == 94 || c== 124 || c== 60 || c == 62){
+		if (isalnum(c) != 0 || c == 40 || c == 41 || c == 126 || c == 94 || c== 124 || c== 60 || c == 62){
 			digitado[i] = c;
 			i++;
 			printf("%c", c);
@@ -92,17 +92,9 @@ int verificacao(char *n, char x, int m){
 				printf("\nNão é uma fórmula lógica proposicional.\nSímbolo proposicional não pode ser seguido de outro S.P..\n", 163, 198, 144, 161);
 				exit(1); 
 			}
-			if (digitado[i + 1 ] == 32 && isalpha(digitado[i + 2]) != 0){
-				printf("\nNão é uma fórmula lógica proposicional.\nSímbolo proposicional não pode ser seguido de outro S.P..\n", 163, 198, 144, 161);
-				exit(1); 
-			}
 		}
 		if (isdigit(digitado[i]) != 0){ 
 			if(isalpha(digitado[i + 1]) != 0){
-				printf("\nNúmero não é símbolo proposicional, digite somente depois de uma letra.\n", 163, 198, 144, 161);
-				exit(1); 
-			}
-			if (digitado[i + 1 ] == 32 && isalpha(digitado[i + 2]) != 0){
 				printf("\nNúmero não é símbolo proposicional, digite somente depois de uma letra.\n", 163, 198, 144, 161);
 				exit(1); 
 			}
@@ -117,18 +109,11 @@ int verificacao(char *n, char x, int m){
 				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
 				exit(1); 
 			}
-			if (digitado[i + 1 ] == 32 && digitado[i + 2] == 94 || digitado[i + 2] == 124 ||  digitado[i + 2] == 60 ||  digitado[i + 2] == 62 ){
-				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
-				exit(1); 
-			}
+			
 			
 		}
 		if (digitado[i] == 124){
 			if(digitado[i + 1] == 94 || digitado[i + 1] == 124 ||  digitado[i + 1] == 60 ||  digitado[i + 1] == 62){
-				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
-				exit(1); 
-			}
-			if (digitado[i + 1 ] == 32 && digitado[i + 2] == 94 || digitado[i + 2] == 124 ||  digitado[i + 2] == 60 ||  digitado[i + 2] == 62 ){
 				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
 				exit(1); 
 			}
@@ -139,18 +124,10 @@ int verificacao(char *n, char x, int m){
 				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
 				exit(1); 
 			}
-			if (digitado[i + 1 ] == 32 && digitado[i + 2] == 94 || digitado[i + 2] == 124 ||  digitado[i + 2] == 60){
-				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
-				exit(1); 
-			}
 			
 		}
 		if (digitado[i] == 62){
 			if(digitado[i + 1] == 94 ||  digitado[i + 1] == 124 ||  digitado[i + 1] == 60 || digitado[i + 1] == 62){
-				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
-				exit(1); 
-			}
-			if (digitado[i + 1 ] == 32 && digitado[i + 2] == 94 || digitado[i + 2] == 124 ||  digitado[i + 2] == 60 ||  digitado[i + 2] == 62 ){
 				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
 				exit(1); 
 			}
@@ -165,7 +142,7 @@ int verificacao(char *n, char x, int m){
 	
 		if(digitado[i] == 62){
 			if(isalpha(digitado[i - 2]) == 0 && digitado[i - 2] != 41){
-				printf("\nNão é uma fórmula lógica proposicional.\nConectivo deve ficar entre S.P..\n");
+				printf("\nNão é uma fórmula lógica proposicional.\n");
 				exit(1); 
 			}
 		}
