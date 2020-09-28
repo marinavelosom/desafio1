@@ -73,7 +73,7 @@ int verificacao(char *n, char x, int m){
 	int i;
 	
 	for (i = 0; i < digitado[i]; i++){
-		if (digitado[i] == 126){ // Negação
+		if (digitado[i] == 126){ 
 			if (digitado[i + 1] == 94 || digitado[i + 1] == 124 || digitado[i + 1] == 60 || digitado[i + 1] == 62){
 				printf("\nNão é uma fórmula lógica proposicional.\nNegação não pode ser seguido de um conetivo.\n");
 				exit(1); 
@@ -87,7 +87,7 @@ int verificacao(char *n, char x, int m){
 				exit(1); 
 			}
 		}
-		if (isalpha(digitado[i]) != 0){ // Letra depois de letra
+		if (isalpha(digitado[i]) != 0){ 
 			if (isalpha(digitado[i + 1]) != 0){
 				printf("\nNão é uma fórmula lógica proposicional.\nSímbolo proposicional não pode ser seguido de outro S.P..\n", 163, 198, 144, 161);
 				exit(1); 
@@ -97,7 +97,7 @@ int verificacao(char *n, char x, int m){
 				exit(1); 
 			}
 		}
-		if (isdigit(digitado[i]) != 0){ // Numero antes de letra
+		if (isdigit(digitado[i]) != 0){ 
 			if(isalpha(digitado[i + 1]) != 0){
 				printf("\nNúmero não é símbolo proposicional, digite somente depois de uma letra.\n", 163, 198, 144, 161);
 				exit(1); 
@@ -112,7 +112,7 @@ int verificacao(char *n, char x, int m){
 			}
 			
 		}
-		if (digitado[i] == 94){ // ^
+		if (digitado[i] == 94){ 
 			if(digitado[i + 1] == 94 || digitado[i + 1] == 124 ||  digitado[i + 1] == 60 ||  digitado[i + 1] == 62){
 				printf("\nNão é uma fórmula lógica proposicional.\nConetivo não pode ser seguido de outro conectivo.\n");
 				exit(1); 
@@ -156,8 +156,15 @@ int verificacao(char *n, char x, int m){
 			}
 			
 		}
-		if(digitado[i] == 94 || digitado[i] == 124 || digitado[i] == 60 || digitado[i] == 62){
-			if(isalpha(digitado[i - 1]) != 1){
+		if(digitado[i] == 94 || digitado[i] == 124 || digitado[i] == 60){
+			if(isalpha(digitado[i - 1]) == 0 && digitado[i - 1] != 41){
+				printf("\nNão é uma fórmula lógica proposicional.\nConectivo deve ficar entre S.P..\n");
+				exit(1); 
+			}
+		}
+	
+		if(digitado[i] == 62){
+			if(isalpha(digitado[i - 2]) == 0 && digitado[i - 2] != 41){
 				printf("\nNão é uma fórmula lógica proposicional.\nConectivo deve ficar entre S.P..\n");
 				exit(1); 
 			}
@@ -168,7 +175,12 @@ int verificacao(char *n, char x, int m){
 				exit(1);
 			}
 		}
-		
+		if (digitado[i] == 60){
+			if(digitado[i + 1] != 62){
+				printf("\n(<) não é um símbolo aceito pelo alfabeto");
+				exit(1);
+			}
+		}
 	}
 	printf("\nÉ uma fórmula lógica proposicional.\n");
 	
