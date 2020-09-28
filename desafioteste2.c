@@ -158,7 +158,7 @@ int verificacao(char *n, char x, int m){
 		}
 		if(digitado[i] == 94 || digitado[i] == 124 || digitado[i] == 60){
 			if(isalpha(digitado[i - 1]) == 0 && digitado[i - 1] != 41){
-				printf("\nNão é uma fórmula lógica proposicional.\nConectivo deve ficar entre S.P..\n");
+				printf("\nNão é uma fórmula lógica proposicional.\n");
 				exit(1); 
 			}
 		}
