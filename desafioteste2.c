@@ -191,13 +191,13 @@ int verificacao(char *n, char x, int m){
 				exit(1);
 			}
 		}
-		if(digitado[i] == 40){
-			if(isalpha(digitado[i + 1]) != 0){
-				printf("\nNão é uma fórmula lógica proposicional.\n");
-				exit(1);
-			}
-		}
-	}
+		//if(digitado[i] == 40){
+			//if(isalpha(digitado[i + 1]) != 0){
+				//printf("\nNão é uma fórmula lógica proposicional.\n");
+				//exit(1);
+			//}
+		//}
+	//}
 	printf("\nÉ uma fórmula lógica proposicional.\n");
 	
 	return 0;
