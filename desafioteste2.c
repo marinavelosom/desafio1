@@ -82,7 +82,7 @@ int verificacao(char *n, char x, int m){
 				printf("\n\nNão é uma fórmula lógica proposicional.\n");
 				exit(1); 
 			}
-			if(isalpha(digitado[i - 1]) != 1){
+			if(digitado[i + 1] == '\0'){
 				printf("\n\nNão é uma fórmula lógica proposicional.\n");
 				exit(1); 
 			}
